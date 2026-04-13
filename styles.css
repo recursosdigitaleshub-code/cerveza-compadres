@@ -1,0 +1,129 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #222;
+  background: #fff;
+}
+
+header, section, footer {
+  padding: 60px 20px;
+}
+header > *, section > *, footer > * {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section:nth-of-type(even) { background: #f5f5f5; }
+
+h1 { font-size: 2rem; margin-bottom: 16px; }
+h2 { font-size: 1.5rem; margin-bottom: 16px; }
+h3 { font-size: 1.1rem; margin-bottom: 8px; }
+p  { margin-bottom: 16px; }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+}
+header > * { margin: 0; }
+nav a {
+  margin-left: 16px;
+  color: #222;
+  text-decoration: none;
+}
+
+#hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.placeholder {
+  width: 100%;
+  background: #eaeaea;
+  border: 1px dashed #aaa;
+  color: #777;
+  font-size: 0.85rem;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 0;
+}
+
+.placeholder.hero-img     { aspect-ratio: 16 / 9; }
+.placeholder.historia     { aspect-ratio: 4 / 3; }
+.placeholder.producto-img { aspect-ratio: 1 / 1; }
+.placeholder.reel         { aspect-ratio: 9 / 16; }
+.placeholder.logo         { aspect-ratio: 3 / 1; width: 140px; flex: none; }
+
+.cta, button {
+  display: inline-block;
+  background: #222;
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 16px;
+  font-family: inherit;
+}
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+.producto {
+  background: #fff;
+  padding: 16px;
+  border: 1px solid #ddd;
+}
+
+.pasos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  list-style: none;
+  counter-reset: pasos;
+}
+.pasos li {
+  counter-increment: pasos;
+  padding: 16px;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+.pasos li::before {
+  content: counter(pasos);
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+footer {
+  border-top: 1px solid #ddd;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+footer > * { margin-bottom: 8px; }
+
+@media (max-width: 768px) {
+  #hero,
+  .grid-3,
+  .grid-4,
+  .pasos {
+    grid-template-columns: 1fr;
+  }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.3rem; }
+}
